@@ -424,7 +424,7 @@ Processing techniques to gain useful information from text.
 notebook.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{2}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Python Regular Expression (RegEx)}
 \PY{k+kn}{import} \PY{n+nn}{re}
@@ -526,12 +526,36 @@ Corpora and Lexical Resources}.
 Here is an example of how you can use a corpora
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{3}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{gutenberg}\PY{o}{.}\PY{n}{fileids}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{3}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['austen-emma.txt',
+ 'austen-persuasion.txt',
+ 'austen-sense.txt',
+ 'bible-kjv.txt',
+ 'blake-poems.txt',
+ 'bryant-stories.txt',
+ 'burgess-busterbrown.txt',
+ 'carroll-alice.txt',
+ 'chesterton-ball.txt',
+ 'chesterton-brown.txt',
+ 'chesterton-thursday.txt',
+ 'edgeworth-parents.txt',
+ 'melville-moby\_dick.txt',
+ 'milton-paradise.txt',
+ 'shakespeare-caesar.txt',
+ 'shakespeare-hamlet.txt',
+ 'shakespeare-macbeth.txt',
+ 'whitman-leaves.txt']
+\end{Verbatim}
+\end{tcolorbox}
+        
     \hypertarget{loading-your-own-corpus}{%
 \subsubsection{Loading Your Own Corpus}\label{loading-your-own-corpus}}
 
@@ -548,7 +572,7 @@ list of fileids, like {[}`a.txt', `test/b.txt'{]}, or a pattern that
 matches all fileids, like '{[}abc{]}/.*.txt'
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{4}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{nltk}
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{corpus} \PY{k+kn}{import} \PY{n}{PlaintextCorpusReader}
@@ -559,11 +583,27 @@ matches all fileids, like '{[}abc{]}/.*.txt'
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{4}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['Final Guidelines on Accounting for Expected Credit Losses (EBA-
+GL-2017-06).txt',
+ 'Final Guidelines on the management of interest rate risk arising from non-
+trading activities.txt',
+ 'Final Report on Guidelines on LGD estimates under downturn conditions.txt',
+ 'Final Report on Guidelines on default definition (EBA-GL-2016-07).txt',
+ 'Final Report on Guidelines on uniform disclosure of IFRS9 transitional
+arrangements (EBA-GL-2018-01).txt',
+ 'Final report on updated GL Funding Plans (EBA 9.12.2019).txt',
+ 'Final report on updated GL Funding Plans\_(EBA-GL-2019-05)\_09122019.txt']
+\end{Verbatim}
+\end{tcolorbox}
+        
     Let's pick out one of these text (for example the guideline on the
 interest rate), give it a short name, irrbb\ldots{}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{5}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{id} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Final Guidelines on the management of interest rate risk arising from non\PYZhy{}trading activities.txt}\PY{l+s+s2}{\PYZdq{}}
 \PY{n}{irrbb\PYZus{}w} \PY{o}{=} \PY{n}{corpus\PYZus{}list}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{n+nb}{id}\PY{p}{)}
@@ -581,13 +621,23 @@ bi-grams, and three words tri-grams.
 The most commonly used tokenization process is White-space Tokenization.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{7}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{sentence} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clear and effective communication is very important to us. Our monetary policy becomes more effective when our decisions are better understood. The media play an important role in this process and help keep us accountable to the European public.}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{sentence} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clear and effective communication is very important to us. Our monetary policy becomes more }\PY{l+s+se}{\PYZbs{}}
+\PY{l+s+s2}{            effective when our decisions are better understood. The media play an important role in this }\PY{l+s+se}{\PYZbs{}}
+\PY{l+s+s2}{            process and help keep us accountable to the European public.}\PY{l+s+s2}{\PYZdq{}}
 \PY{n}{tokens} \PY{o}{=} \PY{n}{sentence}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{tokens}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+['Clear', 'and', 'effective', 'communication', 'is', 'very', 'important', 'to',
+'us.', 'Our', 'monetary', 'policy', 'becomes', 'more', 'effective', 'when',
+'our', 'decisions', 'are', 'better', 'understood.', 'The', 'media', 'play',
+'an', 'important', 'role', 'in', 'this', 'process', 'and', 'help', 'keep', 'us',
+'accountable', 'to', 'the', 'European', 'public.']
+    \end{Verbatim}
 
     When dealing with a new dataset it's often helpful to extract the most
 common words to get an idea of what the data is about. You usually want
@@ -596,7 +646,7 @@ extract n-grams with larger n to identify patterns. NLTK has in-built
 bigrams, trigrams and ngrams functions.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{8}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{tokenize} \PY{k+kn}{import} \PY{n}{word\PYZus{}tokenize}
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{util} \PY{k+kn}{import} \PY{n}{ngrams}\PY{p}{,} \PY{n}{bigrams}\PY{p}{,} \PY{n}{trigrams}
@@ -610,14 +660,324 @@ bigrams, trigrams and ngrams functions.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+[('Dummy', 'sentence'), ('sentence', 'to'), ('to', 'demonstrate'),
+('demonstrate', 'bigrams')]
+[('Dummy', 'sentence', 'to'), ('sentence', 'to', 'demonstrate'), ('to',
+'demonstrate', 'bigrams')]
+    \end{Verbatim}
+
     The sents() function divides the text up into sentencese, where each
 sentence is a list of words
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{9}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{irrbb\PYZus{}s} \PY{o}{=} \PY{n}{corpus\PYZus{}list}\PY{o}{.}\PY{n}{sents}\PY{p}{(}\PY{n+nb}{id}\PY{p}{)}
 \PY{n}{irrbb\PYZus{}s}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{9}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+[['GUIDELINES', 'ON', 'THE', 'MANAGEMENT', 'OF', 'INTEREST', 'RATE', 'RISK'],
+['ARISING', 'FROM', 'NON', '-', 'TRADING', 'BOOK', 'ACTIVITIES'], {\ldots}]
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{processing-raw-text}{%
+\subsection{Processing Raw Text}\label{processing-raw-text}}
+
+    The most important source of texts is undoubtedly the Web. It's
+convenient to have existing text collections to explore, such as the
+corpora we 'll see in the next paragraph. However, you probably have
+your own text sources in mind, and need to learn how to access them.
+
+    \hypertarget{processing-html-files}{%
+\subsubsection{Processing HTML Files}\label{processing-html-files}}
+
+The first type of structured text document you'll look at is HTML---a
+markup language commonly used on the web for human-readable
+representation of information. An HTML document consists of text and
+predefined tags (enclosed in angle brackets \textless\textgreater) that
+control the presentation and interpretation of the text. The tags may
+have attributes.
+
+Reference:
+\href{https://towardsdatascience.com/choose-the-best-python-web-scraping-library-for-your-application-91a68bc81c4f}{this}
+
+    \hypertarget{request}{%
+\subsubsection{Request}\label{request}}
+
+\href{https://requests.readthedocs.io/en/master/}{Request} is the most
+straightforward HTTP library you can use. Requests allow the user to
+sent requests to the HTTP server and GET response back in the form of
+HTML or JSON response. It also allows the user to send POST requests to
+the server to modify or add some content.
+
+    Avoid using Requests if the webpage you're trying or desiring has
+JavaScrip content. Then the responses may not parse the correct
+information.
+
+You can use Requests to fetch and clean well-organized API responses.
+For example, let's say I want to look up a movie in the OMDB database.
+Requests allow me to send a movie name to the API, clean up the
+response, and print it in less than 10 lines of code\ldots{}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{10}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{requests}
+\PY{c+c1}{\PYZsh{}API URL}
+\PY{n}{url} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{http://www.omdbapi.com/?i=tt3896198\PYZam{}apikey=bd51a16a}\PY{l+s+s2}{\PYZdq{}}
+\PY{c+c1}{\PYZsh{}Get a movie to search for}
+\PY{n}{search} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Enter movie name:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{}title of movie}
+\PY{c+c1}{\PYZsh{}Obtain a response}
+\PY{n}{response} \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{params} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}\PY{n}{search}\PY{p}{\PYZcb{}}\PY{p}{)}
+\PY{c+c1}{\PYZsh{}Clean up the JSON response for title and year of production}
+\PY{n}{Data} \PY{o}{=} \PY{n}{response}\PY{o}{.}\PY{n}{json}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Search}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Data}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+  \PY{n+nb}{print}\PY{p}{(}\PY{n}{Data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+  \PY{n+nb}{print}\PY{p}{(}\PY{n}{Data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Year}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
+  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{============================}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Enter movie name:Blade Runner
+Blade Runner
+1982
+============================
+Blade Runner 2049
+2017
+============================
+Blade Runner: Black Out 2022
+2017
+============================
+Dangerous Days: Making Blade Runner
+2007
+============================
+Blade Runner
+1997
+============================
+Oscar Pistorius: Blade Runner Killer
+2017
+============================
+On the Edge of 'Blade Runner'
+2000
+============================
+Blade Runner: Deleted and Alternate Scenes
+2007
+============================
+Blade Runner 2049: To Be Human: - Casting Blade Runner 2049
+2018
+============================
+Blade Runner 60: Director's Cut
+2012
+============================
+    \end{Verbatim}
+
+    \hypertarget{urllib}{%
+\subsubsection{Urllib}\label{urllib}}
+
+Urllib is a Python library that allows the developer to open and parse
+information from HTTP or FTP protocols. Urllib offers some functionality
+to deal with and open URLs, namely: - urllib.request: opens and reads
+URLs. - urllib.error: catches the exceptions raised by urllib.request. -
+urllib.parse: parses URLs. - urllib.robotparser: parses robots.txt
+files.
+
+You don't need to install Urllib since it is a part of the built-in
+Python library.
+
+\textbf{When to use Urllib?}
+
+Urllib is a little more complicated than Requests; however, if you want
+to have better control over your requests, then Urllib is the way to go.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{11}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{urllib} \PY{k+kn}{import} \PY{n}{request}
+
+\PY{k}{def} \PY{n+nf}{freq\PYZus{}words\PYZus{}2}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{html} \PY{o}{=} \PY{n}{request}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{text} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{html}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{html.parser}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{get\PYZus{}text}\PY{p}{(}\PY{p}{)}
+    \PY{n}{fd} \PY{o}{=} \PY{n}{nltk}\PY{o}{.}\PY{n}{FreqDist}\PY{p}{(}\PY{n}{word}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{p}{)}
+    \PY{k}{return} \PY{p}{[}\PY{n}{word} \PY{k}{for} \PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{)} \PY{o+ow}{in} \PY{n}{fd}\PY{o}{.}\PY{n}{most\PYZus{}common}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{page} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://static.nytimes.com/email\PYZhy{}content/CB\PYZus{}sample.html}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{freq\PYZus{}words\PYZus{}2}\PY{p}{(}\PY{n}{page}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{12}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['the', ',', '.', 'of', 'to']
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{13}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{corpus} \PY{k+kn}{import} \PY{n}{stopwords} 
+
+\PY{k}{def} \PY{n+nf}{freq\PYZus{}words\PYZus{}3}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+    \PY{n}{stop\PYZus{}words} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{n}{stopwords}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{english}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} 
+    \PY{n}{html} \PY{o}{=} \PY{n}{request}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+    \PY{n}{text} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{html}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{html.parser}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{get\PYZus{}text}\PY{p}{(}\PY{p}{)}
+    \PY{n}{fd} \PY{o}{=} \PY{n}{nltk}\PY{o}{.}\PY{n}{FreqDist}\PY{p}{(}\PY{n}{word}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{text}\PY{p}{)} \PY{k}{if} \PY{o+ow}{not} \PY{n}{word} \PY{o+ow}{in} \PY{n}{stop\PYZus{}words} \PY{o+ow}{and} \PY{n}{word}\PY{o}{.}\PY{n}{isalpha}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{k}{return} \PY{p}{[}\PY{n}{word} \PY{k}{for} \PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{)} \PY{o+ow}{in} \PY{n}{fd}\PY{o}{.}\PY{n}{most\PYZus{}common}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{]}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{freq\PYZus{}words\PYZus{}3}\PY{p}{(}\PY{n}{page}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{14}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['the', 'i', 'times', 'vaccine', 'breakthrough']
+\end{Verbatim}
+\end{tcolorbox}
+        
+    \hypertarget{beautifulsoup}{%
+\subsubsection{BeautifulSoup}\label{beautifulsoup}}
+
+    \href{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}{BeautifulSoup}
+is a Python library that is used to extract information from XML and
+HTML files. Beautiful Soup is considered a parser library. Parsers help
+the programmer obtain data from an HTML file. One of Beautiful Soup's
+strengths is its ability to detect page encoding, and hence get more
+accurate information from the HTML text. Another advantage of Beautiful
+Soup is its simplicity and ease.
+
+You can construct a BeautifulSoup object from a markup string, a markup
+file, or a URL of a markup document on the web:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{15}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{bs4} \PY{k+kn}{import} \PY{n}{BeautifulSoup}
+
+\PY{c+c1}{\PYZsh{} Construct soup from a string}
+\PY{n}{soup1} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}HTML\PYZgt{}\PYZlt{}HEAD\PYZgt{}«headers»\PYZlt{}/HEAD\PYZgt{}«body»\PYZlt{}/HTML\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup1}\PY{o}{.}\PY{n}{text}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+«headers»«body»
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{16}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Construct soup from a local file}
+\PY{n}{soup2} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./corpus/web/Democrats Poised For Senate Control As Counting Continues In Georgia\PYZus{}NPR.html}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup2}\PY{o}{.}\PY{n}{title}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<title>Democrats Poised For Senate Control As Counting Continues In Georgia :
+NPR</title>
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{17}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup2}\PY{o}{.}\PY{n}{title}\PY{o}{.}\PY{n}{string}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Democrats Poised For Senate Control As Counting Continues In Georgia : NPR
+    \end{Verbatim}
+
+    One common task is extracting all the URLs found within a page's tags:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{19}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{link} \PY{o+ow}{in} \PY{n}{soup2}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
+    \PY{n+nb}{print}\PY{p}{(}\PY{n}{link}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{href}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \textbf{When to use BeautifulSoup?} If you're just starting with webs
+scarping or with Python, Beautiful Soup is the best choice to go.
+Moreover, if the documents you'll be scraping are not structured,
+Beautiful Soup will be the perfect choice to use. If you're building a
+big project, Beautiful Soup will not be the wise option to take.
+Beautiful Soup projects are not flexible and are difficult to maintain
+as the project size increases.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{20}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{requests}
+\PY{k+kn}{from} \PY{n+nn}{bs4} \PY{k+kn}{import} \PY{n}{BeautifulSoup}
+ 
+\PY{n}{base\PYZus{}url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://www.nytimes.com}\PY{l+s+s1}{\PYZsq{}}
+\PY{n}{r} \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{base\PYZus{}url}\PY{p}{)}
+\PY{n}{soup} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{r}\PY{o}{.}\PY{n}{text}\PY{p}{)}
+ 
+\PY{k}{for} \PY{n}{story\PYZus{}heading} \PY{o+ow}{in} \PY{n}{soup}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{n}{class\PYZus{}}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{story\PYZhy{}wrapper}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} 
+    \PY{c+c1}{\PYZsh{}print(story\PYZus{}heading)}
+    \PY{k}{if} \PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{p}{:} 
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{o}{.}\PY{n}{text}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:} 
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{contents}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+U.S. Officials Press for More Thorough Inquiry Into Virus Origins
+The Morning Newsletter: A New C.D.C. Story
+Traveling to Europe this summer? A lot has changed since last year.
+Tracking the Coronavirus ›
+They Were Only Children
+A New Crop in Pennsylvania: Warehouses
+James Bond, Meet Jeff Bezos: Amazon Makes \$8.45 Billion Deal for MGM
+The deal will give the e-commerce giant access to the James Bond franchise as it
+seeks to bolster its Prime membership offering.
+Belarus Plane Crisis Tightens Lukashenko’s Awkward Embrace of Putin
+Russia Raises Heat on Twitter, Google and Facebook in Online Crackdown
+The Chinese Dream, Denied
+Andrew Yang Believes in New York and Himself. Is That Enough?
+Mr. Yang brings star power and optimism to the mayor’s race. But gaps in his
+knowledge about how the city works have led some to say he is out of his depth.
+Our Dream Summer Dishes
+Gabby Jones for The New York Times
+
+
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{23}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{base\PYZus{}url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{https://www.theguardian.com/international}\PY{l+s+s1}{\PYZsq{}}
+\PY{n}{r}    \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{base\PYZus{}url}\PY{p}{)}
+\PY{n}{soup} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{r}\PY{o}{.}\PY{n}{text}\PY{p}{)}
+
+\PY{k}{for} \PY{n}{story\PYZus{}heading} \PY{o+ow}{in} \PY{n}{soup}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{n}{class\PYZus{}}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{fc\PYZhy{}item\PYZus{}\PYZus{}standfirst}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} 
+    \PY{c+c1}{\PYZsh{}print(story\PYZus{}heading)}
+    \PY{k}{if} \PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{p}{:} 
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{o}{.}\PY{n}{text}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+    \PY{k}{else}\PY{p}{:} 
+        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{contents}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -638,31 +998,52 @@ code to find out whether s contains the substring `123'. There are at
 least a couple ways to do this. You could use the in operator:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{24}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{s} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{foo123bar}\PY{l+s+s1}{\PYZsq{}}
 \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{123}\PY{l+s+s1}{\PYZsq{}} \PY{o+ow}{in} \PY{n}{s}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{24}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+True
+\end{Verbatim}
+\end{tcolorbox}
+        
     If you want to know not only whether `123' exists in s but also where it
 exists, then you can use .find() or .index(). Each of these returns the
 character position within s where the substring resides:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{25}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{s}\PY{o}{.}\PY{n}{find}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{123}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{25}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+3
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{26}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{s}\PY{o}{.}\PY{n}{index}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{123}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{26}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+3
+\end{Verbatim}
+\end{tcolorbox}
+        
     In these examples, the matching is done by a straightforward
 character-by-character comparison. That will get the job done in many
 cases. But sometimes, the problem is more complicated than that.
@@ -693,7 +1074,7 @@ This function search looking for the first location where the pattern
 \texttt{None}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{27}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{re}
 
@@ -701,6 +1082,13 @@ This function search looking for the first location where the pattern
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{27}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<re.Match object; span=(3, 6), match='123'>
+\end{Verbatim}
+\end{tcolorbox}
+        
     For the moment, the important point is that re.search() did in fact
 return a match object rather than None. That tells you that it found a
 match. In other words, the specified \textless regex\textgreater{}
@@ -737,7 +1125,7 @@ single character that is in the class, as demonstrated in the following
 example:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{28}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}}
 \PY{c+c1}{\PYZsh{} [0\PYZhy{}9] matches any single decimal digit character—any character between \PYZsq{}0\PYZsq{} and \PYZsq{}9\PYZsq{}, inclusive. }
@@ -753,6 +1141,11 @@ example:
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+gdash5622hjj
+654fdhaskjf
+    \end{Verbatim}
+
     With regexes in Python, you can identify patterns in a string that you
 wouldn't be able to find with the in operator or with string methods.
 
@@ -760,7 +1153,7 @@ Take a look at another regex metacharacter. The dot (.) metacharacter
 matches any character except a newline, so it functions like a wildcard:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{29}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{pattern} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a.h}\PY{l+s+s1}{\PYZsq{}}
 \PY{k}{for} \PY{n}{l} \PY{o+ow}{in} \PY{n}{mylist}\PY{p}{:}
@@ -768,6 +1161,12 @@ matches any character except a newline, so it functions like a wildcard:
         \PY{n+nb}{print}\PY{p}{(}\PY{n}{l}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+gdash5622hjj
+ashjdfuqo
+udyakh
+    \end{Verbatim}
 
     Here, you're essentially asking, \emph{``Does s contain a `a', then any
 character (except a newline), then a `h'?''}.
@@ -777,7 +1176,7 @@ contained in the class. You can enumerate the characters individually
 like this:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{30}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{pattern} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Nr[0\PYZhy{}9]}\PY{l+s+s1}{\PYZsq{}}
 
@@ -788,13 +1187,18 @@ like this:
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+gdas askjd Nr59 dsafh
+Nr47 adfd jads
+    \end{Verbatim}
+
     You can complement a character class by specifying \^{} as the first
 character, in which case it matches any character that isn't in the set.
 In the following example, {[}\^{}0-9{]} matches any character that isn't
 a digit:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{31}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{pattern} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{[\PYZca{}0\PYZhy{}9].}\PY{l+s+s1}{\PYZsq{}}
 
@@ -810,44 +1214,143 @@ a digit:
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+All in all, the EU economy is forecast to grow by 4.6\% in and to strengthen to
+around 5.3\% in 4.2\% and 3.2\% respectively, in the euro area.
+    \end{Verbatim}
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{32}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{wordlist} \PY{o}{=} \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{words}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{en}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{k}{if} \PY{n}{w}\PY{o}{.}\PY{n}{islower}\PY{p}{(}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{33}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{wordlist} \PY{k}{if} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZca{}zu}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{33}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['zuccarino',
+ 'zucchetto',
+ 'zucchini',
+ 'zudda',
+ 'zugtierlast',
+ 'zugtierlaster',
+ 'zuisin',
+ 'zumatic',
+ 'zumbooruk',
+ 'zunyite',
+ 'zupanate',
+ 'zuurveldt',
+ 'zuza']
+\end{Verbatim}
+\end{tcolorbox}
+        
     Let's find words ending with \textbf{zz} using the regular expressio
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{34}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{wordlist} \PY{k}{if} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{zz\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{34}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['abuzz',
+ 'bejazz',
+ 'bizz',
+ 'blizz',
+ 'brizz',
+ 'bruzz',
+ 'buzz',
+ 'fizz',
+ 'frizz',
+ 'fuzz',
+ 'gizz',
+ 'hizz',
+ 'humbuzz',
+ 'huzz',
+ 'jazz',
+ 'muzz',
+ 'outbuzz',
+ 'outjazz',
+ 'razz',
+ 'sizz',
+ 'unfrizz',
+ 'zizz']
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{35}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{wordlist} \PY{k}{if} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZca{}app.*ed\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{35}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['appearanced',
+ 'appellatived',
+ 'appendaged',
+ 'appendiculated',
+ 'applied',
+ 'appressed']
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{36}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{chat\PYZus{}words} \PY{o}{=} \PY{n+nb}{sorted}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{nps\PYZus{}chat}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{chat\PYZus{}words} \PY{k}{if} \PY{n}{re}\PY{o}{.}\PY{n}{search}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZca{}[ha]+\PYZdl{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{w}\PY{p}{)}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{36}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['a',
+ 'aaaaaaaaaaaaaaaaa',
+ 'aaahhhh',
+ 'ah',
+ 'ahah',
+ 'ahahah',
+ 'ahh',
+ 'ahhahahaha',
+ 'ahhh',
+ 'ahhhh',
+ 'ahhhhhh',
+ 'ahhhhhhhhhhhhhh',
+ 'h',
+ 'ha',
+ 'haaa',
+ 'hah',
+ 'haha',
+ 'hahaaa',
+ 'hahah',
+ 'hahaha',
+ 'hahahaa',
+ 'hahahah',
+ 'hahahaha',
+ 'hahahahaaa',
+ 'hahahahahaha',
+ 'hahahahahahaha',
+ 'hahahahahahahahahahahahahahahaha',
+ 'hahahhahah',
+ 'hahhahahaha']
+\end{Verbatim}
+\end{tcolorbox}
+        
     It should be clear that + simply means ``one or more instances of the
 preceding item'', which could be an individual character like m, a set
 like {[}fed{]} or a range like {[}d-f{]}. Now let's replace + with *,
@@ -874,7 +1377,7 @@ your computer and R. Use the following to methods to remove them from
 your text.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{37}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{sentence} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Clear and effective communication is very important to us. Our monetary policy becomes }\PY{l+s+se}{\PYZbs{}}
 \PY{l+s+s2}{            more effective when our decisions are better understood. The media play an important }\PY{l+s+se}{\PYZbs{}}
@@ -885,6 +1388,14 @@ your text.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+['Clear', 'and', 'effective', 'communication', 'is', 'very', 'important', 'to',
+'Our', 'monetary', 'policy', 'becomes', 'more', 'effective', 'when', 'our',
+'decisions', 'are', 'better', 'The', 'media', 'play', 'an', 'important', 'role',
+'in', 'this', 'process', 'and', 'help', 'keep', 'us', 'accountable', 'to',
+'the', 'European']
+    \end{Verbatim}
+
     \textbf{Converting to lowercase}: As before, we want a word to appear
 exactly the same every time it appears. Since many languages
 \textbf{are} case sensitive, ``Text'' is not equal to ``text'' -- and
@@ -894,13 +1405,21 @@ the offenders have been eliminated. This is also a good time to check
 for any other special symbols that may need to be removed manually.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{38}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} all lowercase}
 \PY{n}{words} \PY{o}{=} \PY{p}{[}\PY{n}{word}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{words}\PY{p}{]}
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{words}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+['clear', 'and', 'effective', 'communication', 'is', 'very', 'important', 'to',
+'our', 'monetary', 'policy', 'becomes', 'more', 'effective', 'when', 'our',
+'decisions', 'are', 'better', 'the', 'media', 'play', 'an', 'important', 'role',
+'in', 'this', 'process', 'and', 'help', 'keep', 'us', 'accountable', 'to',
+'the', 'european']
+    \end{Verbatim}
 
     \textbf{Removing numbers}: Text analysts are typically not interested in
 numbers since these do not usually contribute to the meaning of the
@@ -909,7 +1428,7 @@ not the case if one is interested in getting a count of the number of
 times a particular year appears in a corpus.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{39}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} remove numbers}
 \PY{n}{words} \PY{o}{=} \PY{p}{[}\PY{n}{w} \PY{k}{for} \PY{n}{w} \PY{o+ow}{in} \PY{n}{words} \PY{k}{if} \PY{o+ow}{not} \PY{n}{w}\PY{o}{.}\PY{n}{isdigit}\PY{p}{(}\PY{p}{)}\PY{p}{]}
@@ -931,7 +1450,7 @@ NLP Python libraries like NLTK usually come with an in-built stopword
 list which you can easily import.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{40}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{corpus} \PY{k+kn}{import} \PY{n}{stopwords}
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{tokenize} \PY{k+kn}{import} \PY{n}{word\PYZus{}tokenize}
@@ -944,6 +1463,11 @@ list which you can easily import.
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{filtered\PYZus{}sentence}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+['This', 'sample', 'sentence', ',', 'showing', 'stop', 'words', 'filtration',
+'.']
+    \end{Verbatim}
 
     Note, that in some cases stop words matter. For example, in identifying
 negative reviews or recommendations. People will use stop words like
@@ -1006,7 +1530,7 @@ just plug and play.
 \subsubsection{NLTK Stemming}\label{nltk-stemming}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{41}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{stem} \PY{k+kn}{import} \PY{n}{WordNetLemmatizer}\PY{p}{,} \PY{n}{PorterStemmer}\PY{p}{,} \PY{n}{SnowballStemmer}
 
@@ -1023,22 +1547,27 @@ just plug and play.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+consid
+considering
+    \end{Verbatim}
+
     We can use any of the text of nltk corpora to make some test. For
 example:
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{47}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{text\PYZus{}file}\PY{o}{=}\PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{gutenberg}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{melville\PYZhy{}moby\PYZus{}dick.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{my\PYZus{}lines\PYZus{}list}\PY{o}{=}\PY{p}{[}\PY{p}{]}
 \PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{text\PYZus{}file}\PY{p}{:}
     \PY{n}{my\PYZus{}lines\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
-\PY{n}{my\PYZus{}lines\PYZus{}list}
+\PY{c+c1}{\PYZsh{}my\PYZus{}lines\PYZus{}list}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{43}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{stemmer}\PY{o}{=}\PY{n}{PorterStemmer}\PY{p}{(}\PY{p}{)}
 
@@ -1054,7 +1583,7 @@ example:
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{44}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{stem\PYZus{}file}\PY{o}{=}\PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{stemming\PYZus{}example.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{mode}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a+}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{utf\PYZhy{}8}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 
@@ -1098,7 +1627,7 @@ language, which was created by Princeton, and is part of the NLTK
 corpus.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{45}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{stem} \PY{k+kn}{import} \PY{n}{WordNetLemmatizer}
 \PY{n}{wordnet\PYZus{}lemmatizer} \PY{o}{=} \PY{n}{WordNetLemmatizer}\PY{p}{(}\PY{p}{)}
@@ -1117,6 +1646,31 @@ corpus.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+Word                Lemma
+He                  He
+was                 wa
+running             running
+and                 and
+eating              eating
+at                  at
+same                same
+time                time
+He                  He
+has                 ha
+bad                 bad
+habit               habit
+of                  of
+swimming            swimming
+after               after
+playing             playing
+long                long
+hours               hour
+in                  in
+the                 the
+Sun                 Sun
+    \end{Verbatim}
+
     In the above output, you must be wondering that no actual root form has
 been given for any word, this is because they are given without context.
 You need to provide the context in which you want to lemmatize that is
@@ -1124,12 +1678,36 @@ the parts-of-speech (POS). This is done by giving the value for pos
 parameter in \texttt{wordnet\_lemmatizer.lemmatize}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{48}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{sentence\PYZus{}words}\PY{p}{:}
     \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:20\PYZcb{}}\PY{l+s+si}{\PYZob{}1:20\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{word}\PY{p}{,}\PY{n}{wordnet\PYZus{}lemmatizer}\PY{o}{.}\PY{n}{lemmatize}\PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{pos}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{v}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+He                  He
+was                 be
+running             run
+and                 and
+eating              eat
+at                  at
+same                same
+time                time
+He                  He
+has                 have
+bad                 bad
+habit               habit
+of                  of
+swimming            swim
+after               after
+playing             play
+long                long
+hours               hours
+in                  in
+the                 the
+Sun                 Sun
+    \end{Verbatim}
 
     \hypertarget{stemming-or-lemmatization}{%
 \subsubsection{Stemming or
@@ -1263,223 +1841,11 @@ than or equal to 1, the value of idf (and tf--idf) is greater than or
 equal to 0. As a term appears in more documents, the ratio inside the
 logarithm approaches 1, bringing the idf and tf--idf closer to 0.
 
-    \hypertarget{processing-raw-text}{%
-\subsection{Processing Raw Text}\label{processing-raw-text}}
-
-    The most important source of texts is undoubtedly the Web. It's
-convenient to have existing text collections to explore, such as the
-corpora we 'll see in the next paragraph. However, you probably have
-your own text sources in mind, and need to learn how to access them.
-
-    \hypertarget{processing-html-files}{%
-\subsubsection{Processing HTML Files}\label{processing-html-files}}
-
-The first type of structured text document you'll look at is HTML---a
-markup language commonly used on the web for human-readable
-representation of information. An HTML document consists of text and
-predefined tags (enclosed in angle brackets \textless\textgreater) that
-control the presentation and interpretation of the text. The tags may
-have attributes.
-
-Reference:
-\href{https://towardsdatascience.com/choose-the-best-python-web-scraping-library-for-your-application-91a68bc81c4f}{this}
-
-    \hypertarget{request}{%
-\subsubsection{Request}\label{request}}
-
-\href{https://requests.readthedocs.io/en/master/}{Request} is the most
-straightforward HTTP library you can use. Requests allow the user to
-sent requests to the HTTP server and GET response back in the form of
-HTML or JSON response. It also allows the user to send POST requests to
-the server to modify or add some content.
-
-    Avoid using Requests if the webpage you're trying or desiring has
-JavaScrip content. Then the responses may not parse the correct
-information.
-
-You can use Requests to fetch and clean well-organized API responses.
-For example, let's say I want to look up a movie in the OMDB database.
-Requests allow me to send a movie name to the API, clean up the
-response, and print it in less than 10 lines of code\ldots{}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{import} \PY{n+nn}{requests}
-\PY{c+c1}{\PYZsh{}API URL}
-\PY{n}{url} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{http://www.omdbapi.com/?i=tt3896198\PYZam{}apikey=bd51a16a}\PY{l+s+s2}{\PYZdq{}}
-\PY{c+c1}{\PYZsh{}Get a movie to search for}
-\PY{n}{search} \PY{o}{=} \PY{n+nb}{input}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Enter movie name:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)} \PY{c+c1}{\PYZsh{}title of movie}
-\PY{c+c1}{\PYZsh{}Obtain a response}
-\PY{n}{response} \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{params} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{s}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:}\PY{n}{search}\PY{p}{\PYZcb{}}\PY{p}{)}
-\PY{c+c1}{\PYZsh{}Clean up the JSON response for title and year of production}
-\PY{n}{Data} \PY{o}{=} \PY{n}{response}\PY{o}{.}\PY{n}{json}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Search}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
-\PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{Data}\PY{p}{)}\PY{p}{)}\PY{p}{:}
-  \PY{n+nb}{print}\PY{p}{(}\PY{n}{Data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Title}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
-  \PY{n+nb}{print}\PY{p}{(}\PY{n}{Data}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Year}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{)}
-  \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{============================}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \hypertarget{urllib}{%
-\subsubsection{Urllib}\label{urllib}}
-
-Urllib is a Python library that allows the developer to open and parse
-information from HTTP or FTP protocols. Urllib offers some functionality
-to deal with and open URLs, namely: - urllib.request: opens and reads
-URLs. - urllib.error: catches the exceptions raised by urllib.request. -
-urllib.parse: parses URLs. - urllib.robotparser: parses robots.txt
-files.
-
-You don't need to install Urllib since it is a part of the built-in
-Python library.
-
-\textbf{When to use Urllib?}
-
-Urllib is a little more complicated than Requests; however, if you want
-to have better control over your requests, then Urllib is the way to go.
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{urllib} \PY{k+kn}{import} \PY{n}{request}
-
-\PY{k}{def} \PY{n+nf}{freq\PYZus{}words\PYZus{}2}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
-    \PY{n}{html} \PY{o}{=} \PY{n}{request}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-    \PY{n}{text} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{html}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{html.parser}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{get\PYZus{}text}\PY{p}{(}\PY{p}{)}
-    \PY{n}{fd} \PY{o}{=} \PY{n}{nltk}\PY{o}{.}\PY{n}{FreqDist}\PY{p}{(}\PY{n}{word}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{text}\PY{p}{)}\PY{p}{)}
-    \PY{k}{return} \PY{p}{[}\PY{n}{word} \PY{k}{for} \PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{)} \PY{o+ow}{in} \PY{n}{fd}\PY{o}{.}\PY{n}{most\PYZus{}common}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{]}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{page} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{https://static.nytimes.com/email\PYZhy{}content/CB\PYZus{}sample.html}\PY{l+s+s2}{\PYZdq{}}
-\PY{n}{freq\PYZus{}words\PYZus{}2}\PY{p}{(}\PY{n}{page}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{corpus} \PY{k+kn}{import} \PY{n}{stopwords} 
-
-\PY{k}{def} \PY{n+nf}{freq\PYZus{}words\PYZus{}3}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
-    \PY{n}{stop\PYZus{}words} \PY{o}{=} \PY{n+nb}{set}\PY{p}{(}\PY{n}{stopwords}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{english}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)} 
-    \PY{n}{html} \PY{o}{=} \PY{n}{request}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{decode}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{utf8}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-    \PY{n}{text} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{html}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{html.parser}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{get\PYZus{}text}\PY{p}{(}\PY{p}{)}
-    \PY{n}{fd} \PY{o}{=} \PY{n}{nltk}\PY{o}{.}\PY{n}{FreqDist}\PY{p}{(}\PY{n}{word}\PY{o}{.}\PY{n}{lower}\PY{p}{(}\PY{p}{)} \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{nltk}\PY{o}{.}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{text}\PY{p}{)} \PY{k}{if} \PY{o+ow}{not} \PY{n}{word} \PY{o+ow}{in} \PY{n}{stop\PYZus{}words} \PY{o+ow}{and} \PY{n}{word}\PY{o}{.}\PY{n}{isalpha}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-    \PY{k}{return} \PY{p}{[}\PY{n}{word} \PY{k}{for} \PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{\PYZus{}}\PY{p}{)} \PY{o+ow}{in} \PY{n}{fd}\PY{o}{.}\PY{n}{most\PYZus{}common}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{]}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{freq\PYZus{}words\PYZus{}3}\PY{p}{(}\PY{n}{page}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \hypertarget{beautifulsoup}{%
-\subsubsection{BeautifulSoup}\label{beautifulsoup}}
-
-    \href{https://www.crummy.com/software/BeautifulSoup/bs4/doc/}{BeautifulSoup}
-is a Python library that is used to extract information from XML and
-HTML files. Beautiful Soup is considered a parser library. Parsers help
-the programmer obtain data from an HTML file. One of Beautiful Soup's
-strengths is its ability to detect page encoding, and hence get more
-accurate information from the HTML text. Another advantage of Beautiful
-Soup is its simplicity and ease.
-
-You can construct a BeautifulSoup object from a markup string, a markup
-file, or a URL of a markup document on the web:
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{bs4} \PY{k+kn}{import} \PY{n}{BeautifulSoup}
-
-\PY{c+c1}{\PYZsh{} Construct soup from a string}
-\PY{n}{soup1} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZlt{}HTML\PYZgt{}\PYZlt{}HEAD\PYZgt{}«headers»\PYZlt{}/HEAD\PYZgt{}«body»\PYZlt{}/HTML\PYZgt{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup1}\PY{o}{.}\PY{n}{text}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} Construct soup from a local file}
-\PY{n}{soup2} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./corpus/web/Democrats Poised For Senate Control As Counting Continues In Georgia\PYZus{}NPR.html}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
-\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup2}\PY{o}{.}\PY{n}{title}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n+nb}{print}\PY{p}{(}\PY{n}{soup2}\PY{o}{.}\PY{n}{title}\PY{o}{.}\PY{n}{string}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    One common task is extracting all the URLs found within a page's tags:
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k}{for} \PY{n}{link} \PY{o+ow}{in} \PY{n}{soup2}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{:}
-    \PY{n+nb}{print}\PY{p}{(}\PY{n}{link}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{href}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \textbf{When to use BeautifulSoup?} If you're just starting with webs
-scarping or with Python, Beautiful Soup is the best choice to go.
-Moreover, if the documents you'll be scraping are not structured,
-Beautiful Soup will be the perfect choice to use. If you're building a
-big project, Beautiful Soup will not be the wise option to take.
-Beautiful Soup projects are not flexible and are difficult to maintain
-as the project size increases.
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{import} \PY{n+nn}{requests}
-\PY{k+kn}{from} \PY{n+nn}{bs4} \PY{k+kn}{import} \PY{n}{BeautifulSoup}
- 
-\PY{n}{base\PYZus{}url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{http://www.nytimes.com}\PY{l+s+s1}{\PYZsq{}}
-\PY{n}{r} \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{base\PYZus{}url}\PY{p}{)}
-\PY{n}{soup} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{r}\PY{o}{.}\PY{n}{text}\PY{p}{)}
- 
-\PY{k}{for} \PY{n}{story\PYZus{}heading} \PY{o+ow}{in} \PY{n}{soup}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{n}{class\PYZus{}}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{story\PYZhy{}wrapper}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} 
-    \PY{c+c1}{\PYZsh{}print(story\PYZus{}heading)}
-    \PY{k}{if} \PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{p}{:} 
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{o}{.}\PY{n}{text}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-    \PY{k}{else}\PY{p}{:} 
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{contents}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{base\PYZus{}url} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{https://www.theguardian.com/international}\PY{l+s+s1}{\PYZsq{}}
-\PY{n}{r}    \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{base\PYZus{}url}\PY{p}{)}
-\PY{n}{soup} \PY{o}{=} \PY{n}{BeautifulSoup}\PY{p}{(}\PY{n}{r}\PY{o}{.}\PY{n}{text}\PY{p}{)}
-
-\PY{k}{for} \PY{n}{story\PYZus{}heading} \PY{o+ow}{in} \PY{n}{soup}\PY{o}{.}\PY{n}{find\PYZus{}all}\PY{p}{(}\PY{n}{class\PYZus{}}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{fc\PYZhy{}item\PYZus{}\PYZus{}standfirst}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{:} 
-    \PY{c+c1}{\PYZsh{}print(story\PYZus{}heading)}
-    \PY{k}{if} \PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{p}{:} 
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{a}\PY{o}{.}\PY{n}{text}\PY{o}{.}\PY{n}{replace}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-    \PY{k}{else}\PY{p}{:} 
-        \PY{n+nb}{print}\PY{p}{(}\PY{n}{story\PYZus{}heading}\PY{o}{.}\PY{n}{contents}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{.}\PY{n}{strip}\PY{p}{(}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
     \hypertarget{mining-the-corpus}{%
 \subsection{Mining the Corpus}\label{mining-the-corpus}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{49}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{myDoc} \PY{o}{=} \PY{n}{corpus\PYZus{}list}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{n}{corpus\PYZus{}list}\PY{o}{.}\PY{n}{fileids}\PY{p}{(}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
 \PY{c+c1}{\PYZsh{} all lowercase}
@@ -1500,7 +1866,7 @@ as the project size increases.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{50}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{probability} \PY{k+kn}{import} \PY{n}{FreqDist}
 \PY{n}{f1} \PY{o}{=} \PY{n}{FreqDist}\PY{p}{(}\PY{n}{words}\PY{p}{)}
@@ -1508,15 +1874,36 @@ as the project size increases.
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{50}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+FreqDist(\{'interest': 260, 'risk': 237, 'rate': 232, 'irrbb': 165, 'management':
+150, 'institutions': 134, 'non': 96, 'book': 82, 'institution': 82,
+'guidelines': 74, {\ldots}\})
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{51}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{FreqDist}\PY{p}{(}\PY{n}{words}\PY{p}{)}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,} \PY{n}{cumulative}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_114_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{51}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+<matplotlib.axes.\_subplots.AxesSubplot at 0x1d98127d7c8>
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{52}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{wordcloud}
 \PY{c+c1}{\PYZsh{}nice library to produce wordclouds}
@@ -1525,7 +1912,7 @@ as the project size increases.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{53}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{myText} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ }\PY{l+s+s1}{\PYZsq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{words}\PY{p}{)}
 
@@ -1543,6 +1930,11 @@ as the project size increases.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_116_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \hypertarget{a-simple-example-of-document-clustering}{%
 \section{A Simple Example of Document
 Clustering}\label{a-simple-example-of-document-clustering}}
@@ -1568,14 +1960,14 @@ Of primary importance is the `synopses' list; `titles' is mostly used
 for labeling purposes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{54}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{path} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{./corpus/}\PY{l+s+s1}{\PYZsq{}}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{55}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}import three lists: titles, links and wikipedia synopses}
 \PY{c+c1}{\PYZsh{}}
@@ -1599,25 +1991,37 @@ for labeling purposes.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{56}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{titles}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{:}\PY{l+m+mi}{10}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+['The Godfather', 'The Shawshank Redemption', "Schindler's List", 'Raging Bull',
+'Casablanca', "One Flew Over the Cuckoo's Nest", 'Gone with the Wind', 'Citizen
+Kane', 'The Wizard of Oz', 'Titanic']
+    \end{Verbatim}
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{57}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{synopses\PYZus{}wiki}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{200}\PY{p}{]}\PY{p}{)} \PY{c+c1}{\PYZsh{}first 200 characters in first synopses (for \PYZsq{}The Godfather\PYZsq{})}
 \end{Verbatim}
 \end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+ Plot  [edit]  [  [  edit  edit  ]  ]
+  On the day of his only daughter's wedding, Vito Corleone hears requests in his
+role as the Godfather, the Don of a New York crime family. Vito's youngest son,
+    \end{Verbatim}
 
     The list `links' contains hyperlink to a specific film in imdb database.
 For example if you want to know more about \emph{Chinatown} click on
 \href{https://www.imdb.com/title/tt0071315/}{imdb.com/title/tt0071315/}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{58}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{links} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{path} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{link\PYZus{}list\PYZus{}imdb.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{links} \PY{o}{=} \PY{n}{links}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{100}\PY{p}{]}
@@ -1625,7 +2029,7 @@ For example if you want to know more about \emph{Chinatown} click on
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{59}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{synopses\PYZus{}imdb} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{path} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{synopses\PYZus{}list\PYZus{}imdb.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{ BREAKS HERE}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{synopses\PYZus{}imdb} \PY{o}{=} \PY{n}{synopses\PYZus{}imdb}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{100}\PY{p}{]}
@@ -1642,7 +2046,7 @@ For example if you want to know more about \emph{Chinatown} click on
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{60}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{genres} \PY{o}{=} \PY{n+nb}{open}\PY{p}{(}\PY{n}{path} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{genres\PYZus{}list.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}n}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n}{genres} \PY{o}{=} \PY{n}{genres}\PY{p}{[}\PY{p}{:}\PY{l+m+mi}{100}\PY{p}{]}
@@ -1650,7 +2054,7 @@ For example if you want to know more about \emph{Chinatown} click on
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{61}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{titles}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ titles}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{n+nb}{str}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{links}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ links}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
@@ -1660,11 +2064,19 @@ For example if you want to know more about \emph{Chinatown} click on
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+100 titles
+100 links
+100 synopses wiki
+100 synopses imdb
+100 genres
+    \end{Verbatim}
+
     We merge synopses from wikipedia and imdb in order to have more words to
 work with
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{62}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{synopses} \PY{o}{=} \PY{p}{[}\PY{p}{]}
 
@@ -1675,7 +2087,7 @@ work with
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{63}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} generates index for each item in the corpora (in this case it\PYZsq{}s }
 \PY{c+c1}{\PYZsh{} just rank) and I\PYZsq{}ll use this for scoring later}
@@ -1703,7 +2115,7 @@ important in case I want to use stems for an algorithm, but later
 convert stems back to their full words for presentation purposes.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{64}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} here I define a tokenizer and stemmer which returns the set of }
 \PY{c+c1}{\PYZsh{} stems in the text that it is passed}
@@ -1745,7 +2157,7 @@ over the list of synopses to create two vocabularies: one stemmed and
 one only tokenized.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{65}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{totalvocab\PYZus{}stemmed} \PY{o}{=} \PY{p}{[}\PY{p}{]}
 \PY{n}{totalvocab\PYZus{}tokenized} \PY{o}{=} \PY{p}{[}\PY{p}{]}
@@ -1767,60 +2179,22 @@ to many: the stem `run' could be associated with `ran', `runs',
 a problem.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{66}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vocab\PYZus{}frame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{p}{\PYZob{}}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{words}\PY{l+s+s1}{\PYZsq{}}\PY{p}{:} \PY{n}{totalvocab\PYZus{}tokenized}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{index} \PY{o}{=} \PY{n}{totalvocab\PYZus{}stemmed}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
-    \hypertarget{tf-idf-matrix}{%
-\subsection{Tf-idf Matrix}\label{tf-idf-matrix}}
+    \hypertarget{from-words-to-vectors}{%
+\subsection{From Words to Vectors}\label{from-words-to-vectors}}
 
-    Here, we define term frequency-inverse document frequency (tf-idf)
-vectorizer parameters and then convert the \emph{synopses} list into a
-tf-idf matrix. As we have already said, to get a Tf-idf matrix, first
-count word occurrences by document. This is transformed into a
-document-term matrix (dtm). Then apply the term frequency-inverse
-document frequency weighting: words that occur frequently within a
-document but not frequently within the corpus receive a higher weighting
-as these words are assumed to contain more meaning in relation to the
-document.
-
-A couple things to note about the parameters we define below:
-
-max\_df: this is the maximum frequency within the documents a given
-feature can have to be used in the tfi-idf matrix. If the term is in
-greater than 80\% of the documents it probably cares little meanining
-(in the context of film synopses)
-
-min\_idf: this could be an integer (e.g.~5) and the term would have to
-be in at least 5 of the documents to be considered. If we set 0.2; the
-term must be in at least 20\% of the document.
-
-ngram\_range: this just means we'll look at unigrams, bigrams and
-trigrams.
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{feature\PYZus{}extraction}\PY{n+nn}{.}\PY{n+nn}{text} \PY{k+kn}{import} \PY{n}{TfidfVectorizer}
-
-\PY{n}{tfidf\PYZus{}vectorizer} \PY{o}{=} \PY{n}{TfidfVectorizer}\PY{p}{(}\PY{n}{max\PYZus{}df}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{n}{max\PYZus{}features}\PY{o}{=}\PY{l+m+mi}{200000}\PY{p}{,}
-                                   \PY{n}{min\PYZus{}df}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} 
-                                   \PY{n}{use\PYZus{}idf}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{tokenizer}\PY{o}{=}\PY{n}{tokenize\PYZus{}and\PYZus{}stem}\PY{p}{,} \PY{n}{ngram\PYZus{}range}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
-
-\PY{o}{\PYZpc{}}\PY{k}{time} tfidf\PYZus{}matrix = tfidf\PYZus{}vectorizer.fit\PYZus{}transform(synopses)
-
-\PY{n+nb}{print}\PY{p}{(}\PY{n}{tfidf\PYZus{}matrix}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{n}{terms} \PY{o}{=} \PY{n}{tfidf\PYZus{}vectorizer}\PY{o}{.}\PY{n}{get\PYZus{}feature\PYZus{}names}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
+    Processing natural language text and extract useful information from the
+given word, a sentence using machine learning and deep learning
+techniques requires the string/text needs to be converted into a set of
+real numbers (a vector). The process of converting words into numbers
+are called Vectorization. After the words are converted as vectors, we
+need to use some techniques such as Euclidean distance, Cosine
+Similarity to identify similar words.
 
     \hypertarget{document-similarity}{%
 \subsection{Document Similarity}\label{document-similarity}}
@@ -1830,6 +2204,10 @@ each other in terms of their context or meaning. There are various text
 similarity metric exist such as Cosine similarity, Euclidean distance
 and Jaccard Similarity. All these metrics have their own specification
 to measure the similarity between two queries.
+
+Count the common words or Euclidean distance is the general approach
+used to match similar documents which are based on counting the number
+of common words between the documents.
 
     \hypertarget{cosine-similarity}{%
 \subsubsection{Cosine Similarity}\label{cosine-similarity}}
@@ -1874,7 +2252,7 @@ and consider the following frequency matrix
     We can write
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{67}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{doc\PYZus{}1} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Data is the oil of the digital economy}\PY{l+s+s2}{\PYZdq{}} 
 \PY{n}{doc\PYZus{}2} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Data is a new oil}\PY{l+s+s2}{\PYZdq{}} 
@@ -1882,14 +2260,14 @@ and consider the following frequency matrix
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{68}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{n}{doc\PYZus{}1}\PY{p}{,} \PY{n}{doc\PYZus{}2}\PY{p}{]}
 \end{Verbatim}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{69}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{feature\PYZus{}extraction}\PY{n+nn}{.}\PY{n+nn}{text} \PY{k+kn}{import} \PY{n}{CountVectorizer}
 
@@ -1901,22 +2279,37 @@ and consider the following frequency matrix
     Here, is the unique tokens list found in the data.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{70}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{tokens} \PY{o}{=} \PY{n}{count\PYZus{}vectorizer}\PY{o}{.}\PY{n}{get\PYZus{}feature\PYZus{}names}\PY{p}{(}\PY{p}{)}
 \PY{n}{tokens}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{70}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+['data', 'digital', 'economy', 'is', 'new', 'of', 'oil', 'the']
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{71}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{vector\PYZus{}matrix}\PY{o}{.}\PY{n}{toarray}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{71}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+array([[1, 1, 1, 1, 0, 1, 1, 2],
+       [1, 0, 0, 1, 1, 0, 1, 0]], dtype=int64)
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{72}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k}{def} \PY{n+nf}{create\PYZus{}dataframe}\PY{p}{(}\PY{n}{matrix}\PY{p}{,} \PY{n}{tokens}\PY{p}{)}\PY{p}{:}
 
@@ -1928,8 +2321,17 @@ and consider the following frequency matrix
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{72}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+       data  digital  economy  is  new  of  oil  the
+doc\_1     1        1        1   1    0   1    1    2
+doc\_2     1        0        0   1    1   0    1    0
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{73}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics}\PY{n+nn}{.}\PY{n+nn}{pairwise} \PY{k+kn}{import} \PY{n}{cosine\PYZus{}similarity}
 
@@ -1938,11 +2340,20 @@ and consider the following frequency matrix
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{73}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+          doc\_1     doc\_2
+doc\_1  1.000000  0.474342
+doc\_2  0.474342  1.000000
+\end{Verbatim}
+\end{tcolorbox}
+        
     Let's check the cosine similarity with \texttt{TfidfVectorizer}, and see
 how it change over \texttt{CountVectorizer}.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{74}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{feature\PYZus{}extraction}\PY{n+nn}{.}\PY{n+nn}{text} \PY{k+kn}{import} \PY{n}{TfidfVectorizer}
 
@@ -1954,14 +2365,36 @@ how it change over \texttt{CountVectorizer}.
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{74}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+           data  digital  economy        is       new       of       oil  \textbackslash{}
+doc\_1  0.243777  0.34262  0.34262  0.243777  0.000000  0.34262  0.243777
+doc\_2  0.448321  0.00000  0.00000  0.448321  0.630099  0.00000  0.448321
+
+           the
+doc\_1  0.68524
+doc\_2  0.00000
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{75}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cosine\PYZus{}similarity\PYZus{}matrix} \PY{o}{=} \PY{n}{cosine\PYZus{}similarity}\PY{p}{(}\PY{n}{vector\PYZus{}matrix}\PY{p}{)}
 \PY{n}{create\PYZus{}dataframe}\PY{p}{(}\PY{n}{cosine\PYZus{}similarity\PYZus{}matrix}\PY{p}{,}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{doc\PYZus{}1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{doc\PYZus{}2}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{75}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+          doc\_1     doc\_2
+doc\_1  1.000000  0.327871
+doc\_2  0.327871  1.000000
+\end{Verbatim}
+\end{tcolorbox}
+        
     Here, using \texttt{TfidfVectorizer} we get the cosine similarity
 between doc\_1 and doc\_2 is 0.32. Where the \texttt{CountVectorizer}
 has returned the cosine similarity of doc\_1 and doc\_2 is 0.47. This is
@@ -1977,10 +2410,64 @@ d =1-\mathrm{CosineSimilarity}
 The intuition behind this is that if 2 vectors are perfectly the same
 then similarity is 1 (angle=0) and thus, distance is 0 (1-1=0).
 
+    \hypertarget{tf-idf-matrix}{%
+\subsection{Tf-idf Matrix}\label{tf-idf-matrix}}
+
+    Here, we define term frequency-inverse document frequency (tf-idf)
+vectorizer parameters and then convert the \emph{synopses} list into a
+tf-idf matrix. As we have already said, to get a Tf-idf matrix, first
+count word occurrences by document. This is transformed into a
+document-term matrix (dtm). Then apply the term frequency-inverse
+document frequency weighting: words that occur frequently within a
+document but not frequently within the corpus receive a higher weighting
+as these words are assumed to contain more meaning in relation to the
+document.
+
+A couple things to note about the parameters we define below:
+
+max\_df: this is the maximum frequency within the documents a given
+feature can have to be used in the tfi-idf matrix. If the term is in
+greater than 80\% of the documents it probably cares little meanining
+(in the context of film synopses)
+
+min\_idf: this could be an integer (e.g.~5) and the term would have to
+be in at least 5 of the documents to be considered. If we set 0.2; the
+term must be in at least 20\% of the document.
+
+ngram\_range: this just means we'll look at unigrams, bigrams and
+trigrams.
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{77}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{feature\PYZus{}extraction}\PY{n+nn}{.}\PY{n+nn}{text} \PY{k+kn}{import} \PY{n}{TfidfVectorizer}
+
+\PY{n}{tfidf\PYZus{}vectorizer} \PY{o}{=} \PY{n}{TfidfVectorizer}\PY{p}{(}\PY{n}{max\PYZus{}df}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{,} \PY{n}{max\PYZus{}features}\PY{o}{=}\PY{l+m+mi}{200000}\PY{p}{,}
+                                   \PY{n}{min\PYZus{}df}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} 
+                                   \PY{n}{use\PYZus{}idf}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{tokenizer}\PY{o}{=}\PY{n}{tokenize\PYZus{}and\PYZus{}stem}\PY{p}{,} \PY{n}{ngram\PYZus{}range}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{3}\PY{p}{)}\PY{p}{)}
+
+\PY{o}{\PYZpc{}}\PY{k}{time} tfidf\PYZus{}matrix = tfidf\PYZus{}vectorizer.fit\PYZus{}transform(synopses)
+
+\PY{n+nb}{print}\PY{p}{(}\PY{n}{tfidf\PYZus{}matrix}\PY{o}{.}\PY{n}{shape}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Wall time: 15.1 s
+(100, 1180)
+    \end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{78}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{dist} \PY{o}{=} \PY{l+m+mi}{1} \PY{o}{\PYZhy{}} \PY{n}{cosine\PYZus{}similarity}\PY{p}{(}\PY{n}{tfidf\PYZus{}matrix}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{79}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{terms} \PY{o}{=} \PY{n}{tfidf\PYZus{}vectorizer}\PY{o}{.}\PY{n}{get\PYZus{}feature\PYZus{}names}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -2002,7 +2489,7 @@ It took several runs for the algorithm to converge a global optimum as
 k-means is susceptible to reaching local optima.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{80}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{cluster} \PY{k+kn}{import} \PY{n}{KMeans}
 
@@ -2016,8 +2503,12 @@ k-means is susceptible to reaching local optima.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+Wall time: 94.4 ms
+    \end{Verbatim}
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{81}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
 
@@ -2028,14 +2519,25 @@ k-means is susceptible to reaching local optima.
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{82}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{frame}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cluster}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{value\PYZus{}counts}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{82}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+1    48
+0    35
+2    12
+3     5
+Name: cluster, dtype: int64
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{83}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{grouped} \PY{o}{=} \PY{n}{frame}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rank}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{n}{frame}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cluster}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
 
@@ -2043,8 +2545,20 @@ k-means is susceptible to reaching local optima.
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{83}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+cluster
+0    52.457143
+1    49.895833
+2    35.083333
+3    59.600000
+Name: rank, dtype: float64
+\end{Verbatim}
+\end{tcolorbox}
+        
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{84}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Top terms per cluster:}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \PY{n+nb}{print}\PY{p}{(}\PY{p}{)}
@@ -2068,19 +2582,74 @@ k-means is susceptible to reaching local optima.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+Top terms per cluster:
+
+Cluster 0 words: b'love', b'john', b'new', b'that', b'marries', b'she',
+
+Cluster 0 titles: Casablanca, Gone with the Wind, Citizen Kane, Titanic, Sunset
+Blvd., Vertigo, Forrest Gump, The Sound of Music, The Silence of the Lambs,
+Singin' in the Rain, Some Like It Hot, A Streetcar Named Desire, An American in
+Paris, The Best Years of Our Lives, My Fair Lady, Doctor Zhivago, The Good, the
+Bad and the Ugly, The Apartment, It Happened One Night, Midnight Cowboy, Annie
+Hall, Out of Africa, Good Will Hunting, Terms of Endearment, Tootsie, Giant, The
+Green Mile, Network, Nashville, The Graduate, American Graffiti, Stagecoach,
+Mutiny on the Bounty, Taxi Driver, Wuthering Heights,
+
+Cluster 1 words: b'killed', b'police', b'father', b'that', b'family', b'home',
+
+Cluster 1 titles: The Godfather, The Shawshank Redemption, Raging Bull, One Flew
+Over the Cuckoo's Nest, The Wizard of Oz, The Godfather: Part II, Psycho, On the
+Waterfront, West Side Story, Star Wars, E.T. the Extra-Terrestrial, 2001: A
+Space Odyssey, Chinatown, 12 Angry Men, Amadeus, Gandhi, From Here to Eternity,
+Unforgiven, Raiders of the Lost Ark, Rocky, To Kill a Mockingbird, Ben-Hur,
+Jaws, Braveheart, Butch Cassidy and the Sundance Kid, The Treasure of the Sierra
+Madre, High Noon, The Pianist, Goodfellas, The Exorcist, The Deer Hunter, The
+French Connection, City Lights, Mr. Smith Goes to Washington, Rain Man, Fargo,
+The Grapes of Wrath, Shane, Close Encounters of the Third Kind, Pulp Fiction,
+The African Queen, The Maltese Falcon, A Clockwork Orange, Double Indemnity,
+Rebel Without a Cause, Rear Window, The Third Man, North by Northwest,
+
+Cluster 2 words: b'soldiers', b'army', b'command', b'general', b'killed',
+b'war',
+
+Cluster 2 titles: Schindler's List, Lawrence of Arabia, The Bridge on the River
+Kwai, Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb,
+Apocalypse Now, The Lord of the Rings: The Return of the King, Gladiator, Saving
+Private Ryan, Patton, Platoon, Dances with Wolves, All Quiet on the Western
+Front,
+
+Cluster 3 words: b'george', b'marries', b'family', b'perform', b'james',
+b'join',
+
+Cluster 3 titles: It's a Wonderful Life, The Philadelphia Story, The King's
+Speech, A Place in the Sun, Yankee Doodle Dandy,
+
+    \end{Verbatim}
+
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{85}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{cluster\PYZus{}names}
 \end{Verbatim}
 \end{tcolorbox}
 
+            \begin{tcolorbox}[breakable, size=fbox, boxrule=.5pt, pad at break*=1mm, opacityfill=0]
+\prompt{Out}{outcolor}{85}{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\{0: 'love john new that marries she',
+ 1: 'killed police father that family home',
+ 2: 'soldiers army command general killed war',
+ 3: 'george marries family perform james join'\}
+\end{Verbatim}
+\end{tcolorbox}
+        
     \hypertarget{multidimensional-scaling}{%
 \subsubsection{Multidimensional
 scaling}\label{multidimensional-scaling}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{86}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{os}  \PY{c+c1}{\PYZsh{} for os.path.basename}
 
@@ -2107,7 +2676,7 @@ scaling}\label{multidimensional-scaling}}
 clusters}\label{visualizing-document-clusters}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{87}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}set up colors per clusters using a dict}
 \PY{n}{cluster\PYZus{}colors} \PY{o}{=} \PY{p}{\PYZob{}}\PY{l+m+mi}{0}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}1b9e77}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}d95f02}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}7570b3}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}e7298a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+m+mi}{4}\PY{p}{:} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZsh{}66a61e}\PY{l+s+s1}{\PYZsq{}}\PY{p}{\PYZcb{}}
@@ -2115,7 +2684,7 @@ clusters}\label{visualizing-document-clusters}}
 \end{tcolorbox}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{88}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{}create data frame that has the result of the MDS plus the cluster numbers and titles}
 \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n+nb}{dict}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{xs}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{ys}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{n}{clusters}\PY{p}{,} \PY{n}{title}\PY{o}{=}\PY{n}{titles}\PY{p}{)}\PY{p}{)} 
@@ -2161,8 +2730,13 @@ clusters}\label{visualizing-document-clusters}}
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_177_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{89}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plt}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
@@ -2180,7 +2754,7 @@ precomputed cosine distance matrix (dist) to calclate a linkage\_matrix,
 which I then plot as a dendrogram.
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{90}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{cluster}\PY{n+nn}{.}\PY{n+nn}{hierarchy} \PY{k+kn}{import} \PY{n}{ward}\PY{p}{,} \PY{n}{dendrogram}
 
@@ -2203,8 +2777,13 @@ which I then plot as a dendrogram.
 \end{Verbatim}
 \end{tcolorbox}
 
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_181_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\boxspacing}
+\prompt{In}{incolor}{91}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{n}{plt}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
