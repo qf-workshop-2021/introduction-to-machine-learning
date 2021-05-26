@@ -155,7 +155,7 @@
     \renewcommand{\LaTeX}{\textrm{\Oldlatex}}
     % Document parameters
     % Document title
-    \title{introduction-to-text-analysis-with-python}
+    \title{introduction-to-text-analysis}
     
     
     
@@ -403,6 +403,20 @@ manually or analyzed by an automated system. In order to produce
 significant and actionable insights from text data, it is important to
 get acquainted with the basics of Text Analysis.
 
+    \hypertarget{what-is-text-mining}{%
+\subsection{What is Text Mining}\label{what-is-text-mining}}
+
+    Text Mining is the process of analysis of texts written in natural
+language and extract high-quality information from text. It involves
+looking for interesting patterns in the text or to extract data from the
+text to be inserted into a database. Text mining tasks include text
+categorization, text clustering, concept/entity extraction, production
+of granular taxonomies, sentiment analysis, document summarization, and
+entity relation modeling (i.e., learning relations between named
+entities). Developers have to prepare text using lexical analysis, POS
+(Parts-of-speech) tagging, stemming and other Natural Language
+Processing techniques to gain useful information from text.
+
     \hypertarget{package-required}{%
 \subsection{Package Required}\label{package-required}}
 
@@ -448,6 +462,75 @@ comprise further smaller units which are called Tokens.
 
     \hypertarget{using-nltk-corpus}{%
 \subsubsection{Using NLTK Corpus}\label{using-nltk-corpus}}
+
+    What is NLTK? The \href{https://www.nltk.org/}{Natural Language
+Toolkit}, or more commonly NLTK, is a suite of libraries and programs
+for symbolic and statistical natural language processing (NLP) for
+English written in the Python programming language. It was developed by
+Steven Bird and Edward Loper in the Department of Computer and
+Information Science at the University of Pennsylvania.NLTK includes
+graphical demonstrations and sample data. It is accompanied by a book
+that explains the underlying concepts behind the language processing
+tasks supported by the toolkit, plus a text book available also on line
+\href{https://www.nltk.org/book/}{here}
+
+NLTK is intended to support research and teaching in NLP or closely
+related areas, including empirical linguistics, cognitive science,
+artificial intelligence, information retrieval, and machine
+learning.NLTK has been used successfully as a teaching tool, as an
+individual study tool, and as a platform for prototyping and building
+research systems. There are 32 universities in the US and 25 countries
+using NLTK in their courses. NLTK supports classification, tokenization,
+stemming, tagging, parsing, and semantic reasoning functionalities.
+
+The latest version is NLTK 3.3. It can be used by students, researchers,
+and industrialists. It is an Open Source and free library. It is
+available for Windows, Mac OS, and Linux.
+
+You can install nltk using pip installer if it is not installed in your
+Python installation. To test the installation:
+
+\begin{itemize}
+\tightlist
+\item
+  Open your Python IDE or the CLI interface (whichever you use normally)
+\item
+  Type \texttt{import\ nltk} and press enter if no message of missing
+  nltk is shown then nltk is installed on your computer.
+\end{itemize}
+
+After installation, nltk also provides test datasets to work within
+Natural Language Processing. You can download it by using the following
+commands in Python:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{import} \PY{n+nn}{nltk}
+\PY{n}{nltk}\PY{o}{.}\PY{n}{download}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    You can use the NLTK Text Corpora which is a vast repository for a large
+body of text called as a Corpus which can be used while you are working
+with Natural Language Processing (NLP) with Python. There are many
+different types of corpora available that you can use with varying types
+of projects, for example, a selection of free electronic books, web and
+chat text and news documents on different genres.
+
+In the online book site you can find everything you need to known to
+access the NLTK Corpus, in particular you can start from
+\href{https://www.nltk.org/book/ch02.html}{Chapter 2 - Accessing Text
+Corpora and Lexical Resources}.
+
+Here is an example of how you can use a corpora
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{gutenberg}\PY{o}{.}\PY{n}{fileids}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
 
     \hypertarget{loading-your-own-corpus}{%
 \subsubsection{Loading Your Own Corpus}\label{loading-your-own-corpus}}
@@ -879,7 +962,24 @@ remove them, specifically, from the text.
 \subsection{Lemmatisation and
 Stemming}\label{lemmatisation-and-stemming}}
 
-    Typically a large corpus will contain many words that have a common root
+    Stemming and Lemmatization are Text Normalization (or sometimes called
+Word Normalization) techniques in the field of Natural Language
+Processing that are used to prepare text, words, and documents for
+further processing. Stemming and Lemmatization have been studied, and
+algorithms have been developed in Computer Science since the 1960's.
+
+Languages we speak and write are made up of several words often derived
+from one another. When a language contains words that are derived from
+another word as their use in the speech changes is called
+\textbf{Inflected Language}.
+\href{https://en.wikipedia.org/wiki/Inflection}{Inflection} is the
+modification of a word to express different grammatical categories such
+as tense, case, voice, aspect, person, number, gender, and mood. An
+inflection expresses one or more grammatical categories with a prefix,
+suffix or infix, or another internal modification such as a vowel
+change.
+
+Typically a large corpus will contain many words that have a common root
 -- for example: offer, offered and offering. Lemmatisation and stemming
 both refer to a process of reducing a word to its root. The difference
 is that stem might not be an actual word whereas, a lemma is an actual
@@ -894,8 +994,16 @@ the same word as different words. Let's consider the following example:
   Stemming: considered, considering, consider → ``consid''
 \end{itemize}
 
+Stemming and Lemmatization are widely used in tagging systems, indexing,
+SEOs, Web search results, and information retrieval. For example,
+searching for fish on Google will also result in fishes, fishing as fish
+is the stem of both words.
+
 NLTK comes with many different in-built lemmatisers and stemmers, so
 just plug and play.
+
+    \hypertarget{nltk-stemming}{%
+\subsubsection{NLTK Stemming}\label{nltk-stemming}}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -914,6 +1022,139 @@ just plug and play.
 \PY{n+nb}{print}\PY{p}{(}\PY{n}{lemmatised\PYZus{}word}\PY{p}{)}
 \end{Verbatim}
 \end{tcolorbox}
+
+    We can use any of the text of nltk corpora to make some test. For
+example:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{text\PYZus{}file}\PY{o}{=}\PY{n}{nltk}\PY{o}{.}\PY{n}{corpus}\PY{o}{.}\PY{n}{gutenberg}\PY{o}{.}\PY{n}{words}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{melville\PYZhy{}moby\PYZus{}dick.txt}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\PY{n}{my\PYZus{}lines\PYZus{}list}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+\PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{text\PYZus{}file}\PY{p}{:}
+    \PY{n}{my\PYZus{}lines\PYZus{}list}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+\PY{n}{my\PYZus{}lines\PYZus{}list}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{stemmer}\PY{o}{=}\PY{n}{PorterStemmer}\PY{p}{(}\PY{p}{)}
+
+\PY{k}{def} \PY{n+nf}{stemSentence}\PY{p}{(}\PY{n}{sentence}\PY{p}{)}\PY{p}{:}
+    \PY{n}{token\PYZus{}words}\PY{o}{=}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{sentence}\PY{p}{)}
+    \PY{n}{token\PYZus{}words}
+    \PY{n}{stem\PYZus{}sentence}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+    \PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{token\PYZus{}words}\PY{p}{:}
+        \PY{n}{stem\PYZus{}sentence}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{stemmer}\PY{o}{.}\PY{n}{stem}\PY{p}{(}\PY{n}{word}\PY{p}{)}\PY{p}{)}
+        \PY{n}{stem\PYZus{}sentence}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{ }\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{k}{return} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{n}{stem\PYZus{}sentence}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{stem\PYZus{}file}\PY{o}{=}\PY{n+nb}{open}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{stemming\PYZus{}example.txt}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{n}{mode}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{a+}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{utf\PYZhy{}8}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+
+\PY{k}{for} \PY{n}{line} \PY{o+ow}{in} \PY{n}{my\PYZus{}lines\PYZus{}list}\PY{p}{:}
+    \PY{n}{stem\PYZus{}sentence}\PY{o}{=}\PY{n}{stemSentence}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+    \PY{n}{stem\PYZus{}file}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{stem\PYZus{}sentence}\PY{p}{)}
+    
+\PY{n}{stem\PYZus{}file}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}    
+\end{Verbatim}
+\end{tcolorbox}
+
+    Python nltk provides not only two English stemmers: PorterStemmer and
+LancasterStemmer but also a lot of non-English stemmers as part of
+SnowballStemmers, ISRIStemmer, RSLPSStemmer. Python NLTK included
+SnowballStemmers as a language to create to create non-English stemmers.
+One can program one's own language stemmer using snowball. Currently, it
+supports the following languages: - Danish - Dutch - English - French -
+German - Hungarian - Italian - Norwegian - Porter - Portuguese -
+Romanian - Russian - Spanish - Swedish
+
+ISRIStemmer is an Arabic stemmer and RSLPStemmer is stemmer for the
+Portuguese Language.
+
+    \hypertarget{nltk-lemmatization}{%
+\subsubsection{NLTK Lemmatization}\label{nltk-lemmatization}}
+
+    As we have already said, lemmatization, unlike Stemming, reduces the
+inflected words properly ensuring that the root word belongs to the
+language. In Lemmatization root word is called Lemma. A lemma (plural
+lemmas or lemmata) is the canonical form, dictionary form, or citation
+form of a set of words.
+
+For example, runs, running, ran are all forms of the word run, therefore
+run is the lemma of all these words. Because lemmatization returns an
+actual word of the language, it is used where it is necessary to get
+valid words.
+
+Python NLTK provides WordNet Lemmatizer that uses the WordNet Database
+to lookup lemmas of words. WordNet is a lexical database for the English
+language, which was created by Princeton, and is part of the NLTK
+corpus.
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k+kn}{from} \PY{n+nn}{nltk}\PY{n+nn}{.}\PY{n+nn}{stem} \PY{k+kn}{import} \PY{n}{WordNetLemmatizer}
+\PY{n}{wordnet\PYZus{}lemmatizer} \PY{o}{=} \PY{n}{WordNetLemmatizer}\PY{p}{(}\PY{p}{)}
+
+\PY{n}{sentence} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{He was running and eating at same time. He has bad habit of swimming after playing long hours in the Sun.}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{punctuations}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{?:!.,;}\PY{l+s+s2}{\PYZdq{}}
+\PY{n}{sentence\PYZus{}words} \PY{o}{=} \PY{n}{nltk}\PY{o}{.}\PY{n}{word\PYZus{}tokenize}\PY{p}{(}\PY{n}{sentence}\PY{p}{)}
+\PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{sentence\PYZus{}words}\PY{p}{:}
+    \PY{k}{if} \PY{n}{word} \PY{o+ow}{in} \PY{n}{punctuations}\PY{p}{:}
+        \PY{n}{sentence\PYZus{}words}\PY{o}{.}\PY{n}{remove}\PY{p}{(}\PY{n}{word}\PY{p}{)}
+
+\PY{n}{sentence\PYZus{}words}
+\PY{n+nb}{print}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:20\PYZcb{}}\PY{l+s+si}{\PYZob{}1:20\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Word}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Lemma}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}
+\PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{sentence\PYZus{}words}\PY{p}{:}
+    \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:20\PYZcb{}}\PY{l+s+si}{\PYZob{}1:20\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{word}\PY{p}{,}\PY{n}{wordnet\PYZus{}lemmatizer}\PY{o}{.}\PY{n}{lemmatize}\PY{p}{(}\PY{n}{word}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    In the above output, you must be wondering that no actual root form has
+been given for any word, this is because they are given without context.
+You need to provide the context in which you want to lemmatize that is
+the parts-of-speech (POS). This is done by giving the value for pos
+parameter in \texttt{wordnet\_lemmatizer.lemmatize}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\boxspacing}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{for} \PY{n}{word} \PY{o+ow}{in} \PY{n}{sentence\PYZus{}words}\PY{p}{:}
+    \PY{n+nb}{print} \PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+si}{\PYZob{}0:20\PYZcb{}}\PY{l+s+si}{\PYZob{}1:20\PYZcb{}}\PY{l+s+s2}{\PYZdq{}}\PY{o}{.}\PY{n}{format}\PY{p}{(}\PY{n}{word}\PY{p}{,}\PY{n}{wordnet\PYZus{}lemmatizer}\PY{o}{.}\PY{n}{lemmatize}\PY{p}{(}\PY{n}{word}\PY{p}{,} \PY{n}{pos}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{v}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \hypertarget{stemming-or-lemmatization}{%
+\subsubsection{Stemming or
+lemmatization?}\label{stemming-or-lemmatization}}
+
+After going through this section, you may be asking yourself when should
+I use Stemming and when should I use Lemmatization? We have seen the
+following points:
+
+Stemming and Lemmatization both generate the root form of the inflected
+words. The difference is that stem might not be an actual word whereas,
+lemma is an actual language word.
+
+Stemming follows an algorithm with steps to perform on the words which
+makes it faster. Whereas, in lemmatization, you used WordNet corpus and
+a corpus for stop words as well to produce lemma which makes it slower
+than stemming. You also had to define a parts-of-speech to obtain the
+correct lemma.
+
+So when to use what! The above points show that if speed is focused then
+stemming should be used since lemmatizers scan a corpus which consumed
+time and processing. It depends on the application you are working on
+that decides if stemmers should be used or lemmatizers. If you are
+building a language application in which language is important you
+should use lemmatization as it uses a corpus to match root forms.
 
     \hypertarget{measuring-words-frequency}{%
 \subsection{Measuring Words Frequency}\label{measuring-words-frequency}}
