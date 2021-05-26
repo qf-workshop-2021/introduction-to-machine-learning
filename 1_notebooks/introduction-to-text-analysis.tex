@@ -1171,16 +1171,22 @@ scores.
 \subsubsection{The document term
 matrix}\label{the-document-term-matrix}}
 
-    The next step in the process is the creation of the document term matrix
-(DTM)-- a matrix that lists all occurrences of words in the corpus, by
-document. In the DTM, the documents are represented by rows and the
-terms (or words) by columns. If a word occurs in a particular document,
-then the matrix entry for corresponding to that row and column is 1,
-else it is 0 (multiple occurrences within a document are recorded --
-that is, if a word occurs twice in a document, it is recorded as ``2''
-in the relevant matrix entry).
+    The first step in the process is the creation of the document term
+matrix (DTM)-- a matrix that lists all occurrences of words in the
+corpus, by document. In the DTM, the documents are represented by rows
+and the terms (or words) by columns. If a word occurs in a particular
+document, then the matrix entry for corresponding to that row and column
+is 1, else it is 0 (multiple occurrences within a document are recorded
+-- that is, if a word occurs twice in a document, it is recorded as
+``2'' in the relevant matrix entry).
 
-A simple example might serve to explain the structure of the TDM more
+    \begin{figure}
+\centering
+\includegraphics{./img/tf-idf-0.png}
+\caption{image.png}
+\end{figure}
+
+    A simple example might serve to explain the structure of the TDM more
 clearly. Assume we have a simple corpus consisting of two documents,
 Doc1 and Doc2, with the following content:
 
@@ -1188,7 +1194,13 @@ Doc1 = ``I like databases'' Doc2 = ``I dislike databases'',
 
 then the document-term matrix would be:
 
-Clearly there is nothing special about rows and columns -- we could just
+    \begin{figure}
+\centering
+\includegraphics{./img/tf-idf-1.png}
+\caption{image.png}
+\end{figure}
+
+    Clearly there is nothing special about rows and columns -- we could just
 as easily transpose them. If we did so, we'd get a term document matrix
 (TDM) in which the terms are rows and documents columns. One can work
 with either a DTM or TDM. Using the~raw count of a term in a document,
@@ -1853,7 +1865,13 @@ new oil''
 
 and consider the following frequency matrix
 
-We can write
+    \begin{figure}
+\centering
+\includegraphics{./img/tf-idf-2.png}
+\caption{image.png}
+\end{figure}
+
+    We can write
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
 \prompt{In}{incolor}{ }{\boxspacing}
@@ -2315,6 +2333,12 @@ we take a window size of around 8-10 words and have a vector size of
 300.
 
     
+
+    \begin{figure}
+\centering
+\includegraphics{./img/word-embedding-2.png}
+\caption{image.png}
+\end{figure}
 
     \hypertarget{references-and-credits}{%
 \section{References and Credits}\label{references-and-credits}}
